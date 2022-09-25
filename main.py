@@ -35,6 +35,9 @@ class calculator(QMainWindow):
       self.ui.tan.clicked.connect(self.tan)
       self.ui.cot.clicked.connect(self.cot)
       self.ui.sign.clicked.connect(self.sign)
+      text=self.ui.textbox.text()
+      if text[0:2]=='00':
+         self.ui.textbox.setText('0')
    def fun1(self):
       self.ui.textbox.setText(self.ui.textbox.text()+'1')
    def fun2(self):
@@ -54,7 +57,11 @@ class calculator(QMainWindow):
    def fun9(self):
       self.ui.textbox.setText(self.ui.textbox.text()+'9')
    def fun0(self):
-      self.ui.textbox.setText(self.ui.textbox.text()+'0')
+      text=self.ui.textbox.text()
+      if text[0:2]=='00':
+         self.ui.textbox.setText('0')
+      else:
+         self.ui.textbox.setText(self.ui.textbox.text()+'0')
    def dot(self):
       text=self.ui.textbox.text()
       if text[-1]!='.':
